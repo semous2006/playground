@@ -27,5 +27,4 @@ jobs:
 
       - name: Run Tests
         run: npm test
-TH_TOKEN }}
-          NETLIFY_SITE_ID: <your-netlify-site-id>
+
