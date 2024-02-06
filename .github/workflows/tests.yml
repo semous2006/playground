@@ -1,4 +1,4 @@
-name: Node.js CI/CD
+name: UI Tests
 
 on:
   push:
@@ -6,12 +6,12 @@ on:
       - master
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [20] 
+        node-version: [20]
 
     steps:
       - name: Checkout Repository
@@ -20,28 +20,14 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: '20'
 
       - name: Install Dependencies
         run: npm install
 
-      - name: Linting
-        run: npm run lint
+      - name: Run Module 3 UI Tests
+        run: npm run test:module3
 
-      - name: Unit Tests
-        run: npm test
+      - name: Run Module 4 UI Tests
+        run: npm run test:module4
 
-      - name: Build
-        run: npm run build
-
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to Netlify
-        uses: netlify/actions/cli@v1
-        with:
-          args: deploy --prod
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: <your-netlify-site-id>
