@@ -10,6 +10,34 @@ The workflow consists of two jobs:
 
 2. **Publish**: This job runs after the test job completes successfully. It also sets up Node.js, installs dependencies, and publishes the package to NPM using `npm publish`. It requires a secret `NPM_AUTH_TOKEN` to authenticate with NPM.
 
+3. Clone the repository:
+
+    ```bash
+    git clone https://github.com/your-username/your-repository.git
+    ```
+
+4. Install dependencies:
+
+    ```bash
+    npm install
+    ```
+
+5. Run UI tests for Module 3:
+
+    ```bash
+    npm run test:module3
+    ```
+
+6. Run UI tests for Module 4:
+
+    ```bash
+    npm run test:module4
+    ```
+
+## Workflow
+
+The project includes a GitHub Actions workflow for continuous integration. The workflow runs UI tests for Module 3 and Module 4 in parallel on each push to the main branch.
+
 ## Usage
 
 To use this workflow in your own project, follow these steps:
@@ -19,4 +47,6 @@ To use this workflow in your own project, follow these steps:
 3. Set up the `NPM_AUTH_TOKEN` secret in your GitHub repository settings with a valid npm authentication token.
 
 https://github.com/semous2006/playground/pull/1/files
+
+
 
