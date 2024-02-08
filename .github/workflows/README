@@ -13,7 +13,7 @@ The workflow consists of two jobs:
 3. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/semous2006/playground.git
     ```
 
 4. Install dependencies:
