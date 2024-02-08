@@ -1,1 +1,22 @@
+# Node.js Testing and Publishing
+
+This repository contains a GitHub Actions workflow for testing and publishing a Node.js package to NPM.
+
+## Workflow Description
+
+The workflow consists of two jobs:
+
+1. **Test**: This job runs on every push to the main branch. It sets up Node.js, installs dependencies, and runs tests using `npm test`.
+
+2. **Publish**: This job runs after the test job completes successfully. It also sets up Node.js, installs dependencies, and publishes the package to NPM using `npm publish`. It requires a secret `NPM_AUTH_TOKEN` to authenticate with NPM.
+
+## Usage
+
+To use this workflow in your own project, follow these steps:
+
+1. Copy the contents of `.github/workflows` directory to your project's `.github/workflows` directory.
+2. Make sure you have the appropriate npm scripts set up in your `package.json` file for testing and publishing.
+3. Set up the `NPM_AUTH_TOKEN` secret in your GitHub repository settings with a valid npm authentication token.
+
+
 
