@@ -1,6 +1,9 @@
-name: ZAP Baseline Scan
+name: OWASP ZAP Baseline Scan
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   zap_scan:
@@ -10,8 +13,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: ZAP Baseline Scan
-        uses: zaproxy/action-baseline@v0.11.0
+      - name: Run OWASP ZAP Baseline Scan
+        uses: zaproxy/action-baseline@v1
         with:
           target: 'https://juice-shop.herokuapp.com/#'
+
 
